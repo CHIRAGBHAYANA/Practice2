@@ -3,11 +3,7 @@ const Books = require("../models/books");
 const createBook = async (req, res) => {
   const { name, description, author } = req.body;
 
-  const book = await Books.create({
-    name,
-    description,
-    author,
-  });
+  const book = await Books.create(req.body);
   res.send(book);
 };
 

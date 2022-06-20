@@ -9,5 +9,7 @@ const router = express.Router();
 
 // router.route("/books").get(getAllBooks);
 
-router.route("/admin/book/new").post(auth, createBook);
+router
+  .route("/admin/book/new")
+  .post(auth, authorizedRoles("admin"), createBook);
 module.exports = router;
